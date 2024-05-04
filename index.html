@@ -12,45 +12,50 @@
   </header>
   <main>
     <h2>Add Employee</h2>
-    <form onSubmit = "submitBtn(event)" >
+    <form onSubmit="submitBtn(event)" >
       <input
         placeholder=" "
         type="text"
-        id=" FirstName ">
+        id= " firstNameInput ">
       <input
-        placeholder=" Last Name "
+        placeholder= " Last Name "
         type=" text "
-        id=" Last Name ">
+        id= " lastNameInput ">
         <input
-        placeholder=" ID Number "
+        placeholder= " ID Number "
         type=" text"
-        id=" ID Number ">
+        id= " idInput ">
         <input
-        placeholder=" Job Title "
+        placeholder= " Job Title "
         type="text"
-        id=" Job Title ">
+        id= " titleInput ">
         <input
-        placeholder="Annual Salary"
-        type="text"
-        id=" Annual Salary "
+        placeholder= "Annual Salary"
+        type=" text "
+        id=" annualSalaryInput "
         >
-      <button>Submit</button>
+      <button type=" submit">Submit</button>
     </form>
     <h2>Employees</h2>
     <section>
-      <div id = "tableText"></div>
-      <h3>First Name</h3>
+    
       
-        <thead>
-          <tr>
-            
-            <th>ID Number</th>
-            <th>Job Title</th>
-            <th>Annual Salary</th>
-            <th>Delete</th>
-            <td> id =onclck </td>
+        <table bgcolor="lightgrey" width="500">
+          <tr > 
+            <th width="100">First Name</th>
+            <th width="100"> Last Name </th>
+            <th width="100">ID Number</th>
+            <th width="100">Job Title</th>
+            <th width="100">Annual Salary</th>
           </tr>
-        </thead>
+          <div id = "tableText"></div>
+          <tr>
+            <td></td><td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
         <tbody >
         </tbody>
       </table>

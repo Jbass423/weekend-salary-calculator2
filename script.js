@@ -10,22 +10,21 @@ console.log("Hello World!!!!");
 
 function submitBtn(event) { 
     console.log("submitBtn() works!")
-    //event.preventDefault();
-    let firstName = document.getElementById(" FirstName ").value
-    let lastName = document.getElementById(" Last Name ").value
-    let idNumber = document.getElementById(" ID Number ").value
-    let jobTitle = document.getElementById(" Job Title ").value
-    let annualSalary = document.getElementById(" Annual Salary ").value
+    event.preventDefault();
 
-    console.log(`first name check ${firstName}`)
-    console.log(`last name check ${lastName}`)
-    console.log(`id check ${idNumber}`);
+    let firstName = document.getElementById(" firstNameInput ").value
+    let lastName = document.getElementById(" lastNameInput ").value
+    let idNumber = document.getElementById(" idInput ").value
+    let jobTitle = document.getElementById(" titleInput ").value
+    let annualSalary = document.getElementById(" annualSalaryInput ").value
+
+    console.log(`first name check: ${firstName}`)
+    console.log(`last name check :${lastName}`)
+    console.log(`id check: ${idNumber}`);
     console.log(`title check: ${jobTitle}`);
     console.log(`annual check: ${annualSalary}`);
   
-}
 
-submitBtn()
 
 
 
@@ -33,10 +32,13 @@ let tableText = document.getElementById("tableText")
 console.log("current table text", tableText );
 tableText.innerHTML += 
 `<tr>
-<td>${ firstName }</td>
- <td>${ lastName }</td>
- <td>${ idNumber }</td>
- <td>${ jobTitle}</td>
- <td>${ annualSalary }</td>
+<td>${firstName}</td>
+ <td>${lastName}</td>
+ <td>${idNumber}</td>
+ <td>${jobTitle}</td>
+ <td>${annualSalary}</td>
 </tr>
 `
+};
+
+submitBtn()
