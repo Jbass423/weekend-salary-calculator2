@@ -1,0 +1,12 @@
+.tableText{
+    width: 900px;
+    margin: 0 auto;
+}
+
+table{
+    width: 100%;
+}
+
+td{
+    border: 15px soild black;
+}
