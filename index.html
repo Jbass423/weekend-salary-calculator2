@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
   <title>Salary Calculator</title>
 </head>
 <body>
@@ -12,62 +11,40 @@
   </header>
   <main>
     <h2>Add Employee</h2>
-    <form onSubmit="submitBtn(event)" >
-      <input
-        placeholder=" first name  "
-        type="text"
-        id= " firstNameInput ">
-      <input
-        placeholder= " Last Name "
-        type=" text "
-        id= " lastNameInput ">
-        <input
-        placeholder= " ID Number "
-        type=" text"
-        id= " idInput ">
-        <input
-        placeholder= " Job Title "
-        type="text"
-        id= " titleInput ">
-        <input
-        placeholder= "Annual Salary"
-        type=" text "
-        id=" annualSalaryInput "
-        >
-      <button type=" submit">Submit</button>
+    <form id="employeeForm">
+      <label for="firstNameInput">First Name:</label>
+      <input type="text" id="firstNameInput" data-testid="firstNameInput" required>
+      <label for="lastNameInput">Last Name:</label>
+      <input type="text" id="lastNameInput" data-testid="lastNameInput" required>
+      <label for="idInput">ID Number:</label>
+      <input type="text" id="idInput" data-testid="idInput" required>
+      <label for="titleInput">Job Title:</label>
+      <input type="text" id="titleInput" data-testid="titleInput" required>
+      <label for="annualSalaryInput">Annual Salary:</label>
+      <input type="number" id="annualSalaryInput" data-testid="annualSalaryInput" required>
+      <button type="submit" data-testid="submitButton">Submit</button>
     </form>
+
     <h2>Employees</h2>
-    <section>
-        <table id = "employeeTable" bgcolor="lightgrey" width="500">
-         <tr>
-            <th width="100">First Name</th>
-            <th width="100"> Last Name </th>
-            <th width="100">ID Number</th>
-            <th width="100">Job Title</th>
-            <th width="100">Annual Salary</th>
-            <th></th>
-          </tr>
-        </table>
-        <tbody >
-        </tbody>
-      </table>
-    </section>
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Annual Salary</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody id="employeeList" data-testid="employeeList"></tbody>
+    </table>
   </main>
-  <main>
-    <table>
-  <div id = "tableText"></div>
-  <tr>
-    <tr></tr> 
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <button type="button" class="deletebtn" onclick="deletebtn()">Delete</button>
-  </table>
-  </main>
-  <footer id = "totalmonthly">
-    <p>  Total Monthly:<span id="footertext"></span></p>
+
+  <footer>
+    <p>Total Monthly Cost: <span id="totalMonthlyCost" data-testid="totalMonthlyCost">$0</span></p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-scr

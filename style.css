@@ -1,24 +1,83 @@
-.tableText{
-    width: 900px;
-    margin: 12 auto;
-    border: 15px soild black;
-    border-collapse: collapse;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-table{
-    width: 100%;
-    border: 15px soild black;
-    border-collapse: collapse;
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-td{
-    border: 1px soild black;
-    border-collapse: collapse;
+header {
+  background-color: #ccc;
+  padding: 20px;
 }
 
-th {border: 1px soild black; }
+main {
+  padding: 20px;
+}
 
-body {background-color: white;}
+footer {
+  background-color: #ccc;
+  padding: 20px;
+}
 
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
+label {
+  font-weight: bold;
+}
 
+input[type="text"],
+input[type="number"] {
+  width: 150px;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.deleteBtn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.over-budget {
+  color: red;
+}
