@@ -1,4 +1,4 @@
-console.log("Hello World!!!!");
+
 
 // build input spots in html
 // build value for input in js 
@@ -6,39 +6,69 @@ console.log("Hello World!!!!");
 // build sumbit button and give it the function to submit the input 
 // assure the form clears when needed 
 // set over budget 
-//create a delete button that removes employee from dom. 
-
-function submitBtn(event) { 
-    console.log("submitBtn() works!")
-    event.preventDefault();
-
-    let firstName = document.getElementById(" firstNameInput ").value
-    let lastName = document.getElementById(" lastNameInput ").value
-    let idNumber = document.getElementById(" idInput ").value
-    let jobTitle = document.getElementById(" titleInput ").value
-    let annualSalary = document.getElementById(" annualSalaryInput ").value
-
-    console.log(`first name check: ${firstName}`)
-    console.log(`last name check :${lastName}`)
-    console.log(`id check: ${idNumber}`);
-    console.log(`title check: ${jobTitle}`);
-    console.log(`annual check: ${annualSalary}`);
-  
+//create a delete button that removes employee from dom.
 
 
+document.addEventListener(`DOMContentLoaded`,function(){
+    const employeeForm = document.getElementById('employeeForm');
+    const employeeTable = document.getElementById(`employeeList`);
+    const totalmonthlycostelement = document.getElementById(`totalmonthlycost`);
+    const footer = document.getElementById('footer');
+
+    let totalMonthlycost = 0;
+
+    function updateTotalMonthlycost() {
+        totalMonthlycost = 0;
+
+        const rows = employeeTable.querySelectorAll("tr")
+        rows.forEach(row => {
+            const salary = parseInt(row.lastElementChild.previousElementSibling.textContent.replace('$', '').replace(/,/g, ''));
+            totalMonthlyCost += salary / 12;
+          });
+        }
+    
+    totalmonthlycostelement.textcontent = `$${totalMonthlyCost.tofixed(2)}`;
+    if (totalMonthlyCost > 20000) {
+        footer.classlist.add(`over-budget`);
+    
+    }else {
+        footer.classList.remove(`over-budget`);
+
+    }
+
+    function addEmployeeRow(firstName, lastName, id, title, annualSalary) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${firstName}</td>
+          <td>${lastName}</td>
+          <td>${id}</td>
+          <td>${title}</td>
+          <td>$${annualSalary.toLocaleString()}</td>
+          <td><button class="deleteBtn">Delete</button></td>
+        `;
+        employeeTable.appendChild(row);
+        updateTotalMonthlyCost();
+      }
+    
+      function clearFormInputs() {
+        employeeForm.reset();
+      }
+
+      employeeForm.addEventListener(`click`, function (event){
+        if (event.target.classList.contains(`deletebtn`)) {
+            const row = event.target.parentElement.parentElement;
+            row.remove();
+            updateTotalMonthlyCost();
+        }
+    })
+
+});
 
 
-let tableText = document.getElementById("tableText")
-console.log("current table text", tableText );
-tableText.innerHTML += 
-`<tr>
-<td>${firstName}</td>
- <td>${lastName}</td>
- <td>${idNumber}</td>
- <td>${jobTitle}</td>
- <td>${annualSalary}</td>
-</tr>
-`
-};
 
-submitBtn()
+
+
+
+
+
+

@@ -14,7 +14,7 @@
     <h2>Add Employee</h2>
     <form onSubmit="submitBtn(event)" >
       <input
-        placeholder=" "
+        placeholder=" first name  "
         type="text"
         id= " firstNameInput ">
       <input
@@ -38,23 +38,14 @@
     </form>
     <h2>Employees</h2>
     <section>
-    
-      
-        <table bgcolor="lightgrey" width="500">
-          <tr > 
+        <table id = "employeeTable" bgcolor="lightgrey" width="500">
+         <tr>
             <th width="100">First Name</th>
             <th width="100"> Last Name </th>
             <th width="100">ID Number</th>
             <th width="100">Job Title</th>
             <th width="100">Annual Salary</th>
-            
-          </tr>
-          <div id = "tableText"></div>
-          <tr>
-            <td></td><td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th></th>
           </tr>
         </table>
         <tbody >
@@ -62,9 +53,20 @@
       </table>
     </section>
   </main>
+  <main>
+    <table>
+  <div id = "tableText"></div>
+  <tr>
+    <tr></tr> 
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <button type="button" class="deletebtn" onclick="deletebtn()">Delete</button>
+  </table>
   </main>
-  <footer>
-    <p>Total Monthly</p>
+  <footer id = "totalmonthly">
+    <p>  Total Monthly:<span id="footertext"></span></p>
   </footer>
 </body>
 </html>

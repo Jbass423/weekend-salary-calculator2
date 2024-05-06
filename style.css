@@ -1,12 +1,24 @@
 .tableText{
     width: 900px;
-    margin: 0 auto;
+    margin: 12 auto;
+    border: 15px soild black;
+    border-collapse: collapse;
 }
 
 table{
     width: 100%;
+    border: 15px soild black;
+    border-collapse: collapse;
 }
 
 td{
-    border: 15px soild black;
+    border: 1px soild black;
+    border-collapse: collapse;
 }
+
+th {border: 1px soild black; }
+
+body {background-color: white;}
+
+
+
