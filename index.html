@@ -22,7 +22,7 @@
       <input type="text" id="titleInput" data-testid="titleInput" required>
       <label for="annualSalaryInput">Annual Salary:</label>
       <input type="number" id="annualSalaryInput" data-testid="annualSalaryInput" required>
-      <button type="submit" data-testid="submitButton">Submit</button>
+      <button onClick="addEmp(event)" type="submit" data-testid="submitButton">Submit</button>
     </form>
 
     <h2>Employees</h2>
@@ -45,6 +45,6 @@
     <p>Total Monthly Cost: <span id="totalMonthlyCost" data-testid="totalMonthlyCost">$0</span></p>
   </footer>
 
-  <script src="script.js"></script>
+  <script defer src="script.js"></script>
 </body>
 </html>
