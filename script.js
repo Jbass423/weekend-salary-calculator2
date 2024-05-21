@@ -33,13 +33,21 @@ function addEmp(event) {
   let annualSalary = parseFloat(document.getElementById('annualSalaryInput').value)
  // addEmployeeRow(firstName,lastName,id,title,annalSalary)
   let display = document.getElementById("employeeList")
-  display.innerHTML += ` 
+  display.innerHTML += ` <p>
   <td>${firstName}</td>
   <td>${lastName}</td>
   <td>${id}</td>
   <td>${title}</td>
   <td>$${annualSalary}</td>
-  <td><button class="deleteBtn">Delete</button></td>
+  <td><button onClick="deleteBtn(event)" class="deleteBtn">Delete</button></td>
+  </p>
 `;
 clearFormInputs()
 }
+
+function deleteBtn(event) {
+  let row = event.target.closest('tr'); // Find the closest parent table row (tr) of the delete button
+  row.remove(); // Remove the row from the DOM
+}
+
+  
