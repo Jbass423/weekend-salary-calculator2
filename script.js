@@ -1,6 +1,26 @@
-let totalMonthlyCost = 0;
+function updateCost() {
+  // Reset totalMonthlyCost to 0 before recalculating
+  totalMonthlyCost = []
 
+  // Get the value entered in the annualSalaryInput field
+  const salaryInputValue = parseFloat(document.getElementById('annualSalaryInput').value);
 
+  // Check if the entered value is a valid number
+  if (salaryInputValue) {
+    totalMonthlyCost.push(salaryInputValue)
+      // Update totalMonthlyCost with the entered value
+      totalMonthlyCost = salaryInputValue / 12;
+  } else {
+      console.error("Invalid input. Please provide a valid number.");
+  }
+
+  // Output the updated totalMonthlyCost
+
+  let footer = document.getElementById('totalMonthlyCost');
+  footer.innerHTML = `<p>Total Monthly Cost: ${totalMonthlyCost}</p>`;
+  
+  console.log('Updated Total Monthly Cost:', totalMonthlyCost);
+}
 
 
 //function addEmployeeRow(firstName, lastName, id, title, annualSalary) {
@@ -42,12 +62,14 @@ function addEmp(event) {
   <td><button onClick="deleteBtn(event)" class="deleteBtn">Delete</button></td>
   </p>
 `;
+updateCost()
 clearFormInputs()
 }
 
 function deleteBtn(event) {
-  let row = event.target.closest('tr'); // Find the closest parent table row (tr) of the delete button
-  row.remove(); // Remove the row from the DOM
+  let row = event.target.closest('tr'); 
+  row.remove(); 
+  updateCost()
 }
 
   
