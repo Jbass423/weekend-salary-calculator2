@@ -1,26 +1,40 @@
-function updateCost() {
-  // Reset totalMonthlyCost to 0 before recalculating
-  totalMonthlyCost = []
 
+
+
+
+
+let annualSalaries = []; // Array to store all entered annual salaries
+let totalMonthlyCost = 0; // Total monthly cost accumulator
+
+function updateCost() {
   // Get the value entered in the annualSalaryInput field
   const salaryInputValue = parseFloat(document.getElementById('annualSalaryInput').value);
 
   // Check if the entered value is a valid number
-  if (salaryInputValue) {
-    totalMonthlyCost.push(salaryInputValue)
-      // Update totalMonthlyCost with the entered value
-      totalMonthlyCost = salaryInputValue / 12;
+  if (!isNaN(salaryInputValue)) {
+    // Add the entered salary to the array of annual salaries
+    annualSalaries.push(salaryInputValue);
+
+    // Calculate the total monthly cost by summing up all the converted monthly costs
+    totalMonthlyCost = annualSalaries.reduce((total, salary) => total + salary / 12, 0);
+
+    // Output the updated totalMonthlyCost
+    let footer = document.getElementById('totalMonthlyCost');
+    footer.innerHTML = `<p>Total Monthly Cost: $${totalMonthlyCost.toFixed(2)}</p>`;
+    
+   
+    if (totalMonthlyCost > 20000) {
+      footer.classList.toggle('over-budget');
+    } else if ( totalMonthlyCost<20000) {
+      footer.classList.remove('over-budget');
+    }
   } else {
-      console.error("Invalid input. Please provide a valid number.");
+    console.error("Invalid input. Please provide a valid number.");
   }
-
-  // Output the updated totalMonthlyCost
-
-  let footer = document.getElementById('totalMonthlyCost');
-  footer.innerHTML = `<p>Total Monthly Cost: ${totalMonthlyCost}</p>`;
-  
-  console.log('Updated Total Monthly Cost:', totalMonthlyCost);
 }
+
+  
+
 
 
 //function addEmployeeRow(firstName, lastName, id, title, annualSalary) {
@@ -68,8 +82,18 @@ clearFormInputs()
 
 function deleteBtn(event) {
   let row = event.target.closest('tr'); 
-  row.remove(); 
-  updateCost()
+  row.remove();
+ updateCost()
+  
 }
 
   
+//function overBudget() {
+  //let over = document.getElementById('totalMonthlyCost')
+ // if (totalMonthlyCost>20000){
+   
+  //  over.classList.toggle('over-budget ')
+
+ // }
+  
+//}
