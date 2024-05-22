@@ -3,14 +3,14 @@
 
 
 
-let annualSalaries = []; // Array to store all entered annual salaries
-let totalMonthlyCost = 0; // Total monthly cost accumulator
+let annualSalaries = []; 
+let totalMonthlyCost = 0; 
 
 function updateCost() {
-  // Get the value entered in the annualSalaryInput field
+  
   const salaryInputValue = parseFloat(document.getElementById('annualSalaryInput').value);
 
-  // Check if the entered value is a valid number
+  
   if (!isNaN(salaryInputValue)) {
     // Add the entered salary to the array of annual salaries
     annualSalaries.push(salaryInputValue);
@@ -37,19 +37,6 @@ function updateCost() {
 
 
 
-//function addEmployeeRow(firstName, lastName, id, title, annualSalary) {
-  //const row = document.createElement('tr');
-  //row.innerHTML = `
-   // <td>${firstName}</td>
-   // <td>${lastName}</td>
-   // <td>${id}</td>
-   // <td>${title}</td>
-   // <td>$${annualSalary}</td>
-   // <td><button class="deleteBtn">Delete</button></td>
-  //`;
- // employeeTable.appendChild(row);
- // updateTotalMonthlyCost();
-//}
 
 function clearFormInputs() {
   employeeForm.reset();
@@ -88,12 +75,3 @@ function deleteBtn(event) {
 }
 
   
-//function overBudget() {
-  //let over = document.getElementById('totalMonthlyCost')
- // if (totalMonthlyCost>20000){
-   
-  //  over.classList.toggle('over-budget ')
-
- // }
-  
-//}
