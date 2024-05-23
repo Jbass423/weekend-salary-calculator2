@@ -20,20 +20,18 @@ function updateCost() {
 
     // Output the updated totalMonthlyCost
     let footer = document.getElementById('totalMonthlyCost');
-    footer.innerHTML = `<p>Total Monthly Cost: $${totalMonthlyCost.toFixed(2)}</p>`;
-    
+    footer.innerHTML = `<div <div id="over-budget" class="over-budget"> <p>Total Monthly Cost: $${totalMonthlyCost.toFixed(2)}</p> </div>`;
+
+    let overBudgetElement = document.getElementById('over-budget');
    
     if (totalMonthlyCost > 20000) {
-      footer.classList.toggle('over-budget');
-    } else if ( totalMonthlyCost<20000) {
-      footer.classList.remove('over-budget');
-    }
-  } else {
-    console.error("Invalid input. Please provide a valid number.");
-  }
+  overBudgetElement.classList.add('over-budget');
+} else {
+  overBudgetElement.classList.remove('over-budget');
 }
 
-  
+}
+}
 
 
 
@@ -63,8 +61,9 @@ function addEmp(event) {
   <td><button onClick="deleteBtn(event)" class="deleteBtn">Delete</button></td>
   </p>
 `;
+
 updateCost()
-clearFormInputs()
+employeeForm.reset()
 }
 
 function deleteBtn(event) {
@@ -74,4 +73,4 @@ function deleteBtn(event) {
   
 }
 
-  
+
